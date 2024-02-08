@@ -2,55 +2,32 @@
 dark: true
 script: https://cdnjs.cloudflare.com/ajax/libs/three.js/0.159.0/three.min.js
 script: https://code.jquery.com/jquery-3.7.1.min.js
-script: global.js
 script: scene.js
 
-@Store
-<script>
-    const q = Q("@0");
-    q.tries++;
-    q.input = @input;
-    let result = true;
-    if (typeof(@input) == "object")
-    {
-        for (let i = 0; i < q.input.length; i++)
-            result = result && (q.input[i] == @1[i])
-    }
-    else
-    {
-        result = @input == @1;
-    }
-    if (result)
-        G().send(q);
-    result;
-</script>
+import: mcore.md
+
+@onload
+    //Config({host: "http://localhost"});
 @end
 
-@Test
-<script>
-    const q = Q(@0);
-    alert(@0);
-    alert(@input);
-</script>
-@end
 -->
 # Lia 
 
-
+@HSH.myMessage(Simon)
 
 ## Normale Frage
 
 - [[ ]] Frage 1
 - [[x]] Richtig
 - [[?]] Ein Hinweis
-@Store(normal, "01")
+@HSH.store(normal, "01")
+
 
 ## Number
 
 Was ist 2 * 2
-
 [[4]]
-@Store(number, 4)
+@HSH.store(number, 4)
 
 ## Scripted Answer
 
