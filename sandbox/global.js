@@ -13,6 +13,7 @@ function Config(cfg)
     return G().config;
 }
 
+
 function send(data)
 {
     let host = Config().host || "https://xrlab.hs-harz.de/lia";
@@ -27,7 +28,8 @@ function send(data)
             console.log("send ok")
         }
         });
-
+    
+    return true;
 }
 
 /**

@@ -3,31 +3,51 @@ dark: true
 script: https://cdnjs.cloudflare.com/ajax/libs/three.js/0.159.0/three.min.js
 script: https://code.jquery.com/jquery-3.7.1.min.js
 script: scene.js
+script: global.js
 
 import: mcore.md
+
 
 @onload
     //Config({host: "http://localhost"});
 @end
 
+
 -->
 # Lia 
 
-@HSH.myMessage(Simon)
 
 ## Normale Frage
 
 - [[ ]] Frage 1
 - [[x]] Richtig
 - [[?]] Ein Hinweis
-@HSH.store(normal, "01")
+<script>
+    let q = Q("normal");
+    q.tries++;
+    if ([0,1].every( (c,i)=>c == @input[i] ))
+    {
+        q.input = @input;
+        G().send(q);
+        true;
+    } 
+    else false;
+    
+</script>
 
 
 ## Number
 
 Was ist 2 * 2
+
 [[4]]
-@HSH.store(number, 4)
+<script>
+    let q = Q("numeric");
+    q.tries++;
+    q.input = @input;
+    let s = @input == 4;
+    s && G().send(q);
+</script>
 
 ## Scripted Answer
 
