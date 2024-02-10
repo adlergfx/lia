@@ -1,4 +1,4 @@
-function createScene()
+function createScene(callback)
 {
     console.log("create Scene");
     const elem = document.getElementById("canvas");
@@ -20,12 +20,15 @@ function createScene()
         raycaster.setFromCamera( pointer, camera );
         const intersects = raycaster.intersectObjects( scene.children );
 
-        Q("cube").selected = false;
+        //Q("cube").selected = false;
+        let selected = false;
         for ( let i = 0; i < intersects.length; i ++ ) {
 
             const o = intersects[i].object;
-            Q("cube").selected = true;
+            selected = true;
+       //   Q("cube").selected = true;
         }
+        callback(selected);
         pointer = null;
     }
 
