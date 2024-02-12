@@ -46,7 +46,7 @@ Bitte wählen Sie den grünen Würfel
 
 [[!]]
 <script>
-        Quiz.Get().getQuestion("cube").isSolved(yes);
+        Quiz.Get().getQuestion("cube").isSolved();
 </script>
 
 ## Submit
